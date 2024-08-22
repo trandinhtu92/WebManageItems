@@ -1,0 +1,144 @@
+// Cấu trúc tổng thể
+.reset-this {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.redo-fieldset-new {
+  margin-top: 20px;
+  width: 400px !important;
+  height: 220px !important;
+  border: 2px solid #0d161f;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #e9f4ff;
+}
+
+// Định dạng hàng và bảng
+.cl-fsaa010 {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.cl-fs-tbaa010 {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+.cl-fs-theadshow {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.cl-fs-thead-show-2 {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.cl-fs-traa010-1,
+.cl-fs-traa010-2 {
+  background-color: #f1f1f1;
+}
+
+.cl-fs-traa010-1 td,
+.cl-fs-traa010-2 td {
+  padding: 8px 12px;
+}
+
+.cl-fs-traa010-3 {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.cl-fs-tbaa010 input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.cl-fs-tbaa010 label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+// Định dạng nút
+.btn-serch {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-serch:hover {
+  background-color: #0056b3;
+}
+
+// Định dạng bảng sản phẩm
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: left;
+}
+
+table th, table td {
+  padding: 12px 15px;
+  // border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.btn {
+  padding: 8px 16px;
+  margin: 2px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &.btn-edit {
+    background-color: #4CAF50; /* Màu xanh lá cho nút Sửa */
+    color: #fff;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+
+  &.btn-delete {
+    background-color: #f44336; /* Màu đỏ cho nút Xóa */
+    color: #fff;
+
+    &:hover {
+      background-color: #d32f2f;
+    }
+  }
+  &.btn-add {
+    background-color: #d8f436; /* Màu đỏ cho nút Xóa */
+    color: #fff;
+
+    &:hover {
+      background-color: #a7d32f;
+    }
+  }
+}
+
