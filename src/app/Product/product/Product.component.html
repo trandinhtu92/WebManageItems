@@ -1,0 +1,151 @@
+<mat-tab-group #tabGroup (selectedIndexChange)="onTabChange($event)">
+    <mat-tab label="Thông tin danh sách sản phẩm"> 
+		<!-- Hiển thị thông tin lỗi -->
+<fieldset
+	class="reset-this redo-fieldset-new cl-fsaa010 mt-4" style="width: 33%;height: 49% ; margin: 10px;">
+	<div class="row">
+		<table class="cl-fs-tbaa010">
+			<thead class="cl-fs-theadshow">
+				<tr>
+					<th class="cl-fs-thead-show-2" colspan="3">
+						<label class="title-show">Hiển thị</label>
+					</th>
+				</tr>
+			</thead>
+			<tbody class="cl-fs-tbaa010">
+				<tr class="cl-fs-traa010-1">
+					<td><label for="txt-search-compCode">Mã sản phẩm</label></td>
+					<td><span>:</span></td>
+					<td>
+						<input
+							type="text"
+							id="txt-search-compCode"
+							[(ngModel)]="DataSearch.IDProduct" />
+					</td>
+				</tr>
+				<tr class="cl-fs-traa010-2">
+					<td><label for="txt-search-compName">Tên sản phẩm</label></td>
+					<td>:</td>
+					<td>
+						<input
+							type="text"
+							id="txt-search-compName"
+							name="SearchName" [(ngModel)]="DataSearch.NameProduct"/>
+					</td>
+				</tr>
+				<tr class="cl-fs-traa010-3">
+					<td>
+						<button
+							class="btn btn-sm btn-serch btn-header"
+							id="btn-search"
+							(click)="GetProductIDName(DataSearch.IDProduct,DataSearch.NameProduct)"
+							>
+							Tìm kiếm
+						</button>
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</fieldset>
+<button
+	class="btn btn-add btn-sm btn-header"
+	(click)="EditAndCreateProduct(ProductData,false)"
+	>
+	Thêm mới
+</button>
+<table >
+	<thead>
+	  <tr>
+		<th>ID Product</th>
+		<th>Name Product</th>
+		<th>Type Product</th>
+		<th>Category Product</th>
+		<th>Price</th>
+		<th>Action</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr *ngFor="
+			let product of LstProduct
+				index as i;">
+		
+		<td>{{product.idProduct}}</td>
+		<td>{{product.nameProduct}}</td>
+		<td>{{product.typeProduct}}</td>
+		<td>{{product.categoryProduct}}</td>
+		<td>{{product.priceProduct}}</td>
+		<td><button (click)="EditAndCreateProduct(product,true)" class="btn btn-edit">Sửa</button>
+			<button (click)="DeleteProduct(product)"  class="btn btn-delete">Xóa</button></td>
+	  </tr>
+	</tbody>
+</table>
+
+</mat-tab>
+    <mat-tab [label]="tabGroup.selectedIndex == 0 ? 'Sửa/Thêm mới sản phẩm' : IsUpdate ? 'Sửa sản phẩm' :'Thêm mới' " disabled> 
+		<div
+	class="Message-Error Message-Error-Dialog"
+	[hidden]="CSpanMessErr == ''">
+		<table>
+			<tr>
+				<td style="vertical-align: top; color: red; "><span>※</span></td>
+				<td><span [innerHTML]="CSpanMessErr" style="color: red;"></span></td>
+			</tr>
+		</table>
+	</div>
+	<table >
+		<thead>
+		  <tr>
+			<th>ID Product</th>
+			<th>Name Product</th>
+			<th>Type Product</th>
+			<th>Category Product</th>
+			<th>Price</th>
+			<th>Action</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td>
+				<span style="color: red;" *ngIf="!IsUpdate">※</span>
+				<input
+					[(ngModel)]="ProductData.idProduct"
+					[disabled] ="IsUpdate"
+					type="number"
+					maxlength="60"
+					class="inputWithDialgBA011" /></td>
+			<td><input
+				[(ngModel)]="ProductData.nameProduct"
+				type="text"
+				maxlength="60"
+				class="inputWithDialgBA011" /></td>
+			<td><input
+				[(ngModel)]="ProductData.typeProduct"
+				type="text"
+				maxlength="60"
+				class="inputWithDialgBA011" /></td>
+			<td><input
+				[(ngModel)]="ProductData.categoryProduct"
+				type="text"
+				maxlength="60"
+				class="inputWithDialgBA011" /></td>
+			<td><input
+				[(ngModel)]="ProductData.priceProduct"
+				type="number"
+				maxlength="60"
+				class="inputWithDialgBA011" /></td>
+			<td><button *ngIf="IsUpdate" (click)="OnUpdateProduct(ProductData,true)" class="btn btn-edit">Update</button>
+				<button *ngIf="!IsUpdate"
+	class="btn btn-add btn-sm btn-header"
+	(click)="OnUpdateProduct(ProductData,false)"
+	>
+	Create
+</button>	
+			</td>
+		  </tr>
+		</tbody>
+	</table> </mat-tab>
+</mat-tab-group>
+ 
+  
